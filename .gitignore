@@ -3,3 +3,6 @@
 /dj
 /download_music
 /main.py
+.pyc
+__init__.py
+__pycache__/
