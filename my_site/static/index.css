@@ -1,0 +1,121 @@
+/* static/index.css */
+
+:root {
+  --bg-dark:        #0f0f0f;
+  --card-bg:        #1a1a1a;
+  --text-light:     #e0e0e0;
+  --text-muted:     #a0a0a0;
+  --accent-red:     #e63946;
+  --accent-orange:  #f48c06;
+  --border:         #333;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: var(--bg-dark);
+  color: var(--text-light);
+  font-family: 'Roboto', 'Arial', sans-serif;
+  line-height: 1.6;
+  min-height: 100vh;
+  padding: 20px;
+}
+
+/* Контейнер для всех постов */
+main {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+/* Каждый пост */
+ul {
+  list-style: none;
+  margin-bottom: 12px;
+}
+
+ul li {
+  font-size: 0.95rem;
+  margin-bottom: 4px;
+  color: var(--text-muted);
+}
+
+ul li strong {
+  color: var(--text-light);
+  font-weight: 600;
+}
+
+/* Текст поста */
+p {
+  font-size: 1.1rem;
+  margin-bottom: 20px;
+  color: #f0f0f0;
+  background: var(--card-bg);
+  padding: 20px 24px;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+  transition: transform 0.18s ease, box-shadow 0.18s ease;
+}
+
+p:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(230,57,70,0.18);
+}
+
+/* Ссылка "все записи группы" */
+a {
+  display: inline-block;
+  color: var(--accent-red);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1rem;
+  padding: 8px 16px;
+  border: 2px solid var(--accent-red);
+  border-radius: 6px;
+  transition: all 0.22s ease;
+  margin-bottom: 24px;
+}
+
+a:hover {
+  background: var(--accent-red);
+  color: white;
+  transform: translateX(4px);
+}
+
+/* Разделитель между постами */
+hr {
+  border: none;
+  border-top: 1px solid #333;
+  margin: 32px 0;
+}
+
+/* Заголовок страницы (если добавишь) */
+h1 {
+  color: var(--accent-orange);
+  font-size: 2.8rem;
+  margin-bottom: 32px;
+  text-align: center;
+  letter-spacing: -1px;
+  text-shadow: 0 2px 10px rgba(244,140,6,0.3);
+}
+
+/* Адаптивность */
+@media (max-width: 600px) {
+  body {
+    padding: 16px;
+  }
+
+  p {
+    padding: 16px;
+    font-size: 1rem;
+  }
+
+  a {
+    padding: 10px 14px;
+    font-size: 0.95rem;
+  }
+}
