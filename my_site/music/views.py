@@ -1,3 +1,4 @@
+from django.core.handlers.wsgi import WSGIRequest
 from django.http import HttpResponse
 from django.shortcuts import render
 from django.template import loader
@@ -14,8 +15,9 @@ def index(request):
     }
     return render(request, 'music/index.html', context)
 
-def categories(request, pk):
-    return HttpResponse(f'<h1>Категории музыки {pk}</h1>')
+def categories(request: WSGIRequest, genre: str):
+    req = dict(request) if request else None  
+    return HttpResponse(f'<h1>Категории музыки {genre}</h1><br>Запрос<br>{request.path_info}{dict(request.GET)}')
 
 def rock(request):
     return render(request, 'music/rock.html')
@@ -25,5 +27,5 @@ def all_music(request):
 
 
 def tracks_rock(request):
-    data = EnteredTrack('linkin park', 10).get_all
+    data = EnteredTrack('limp bizkit', 40).get_all
     return render(request, 'music/rock_tracks.html', context=data)

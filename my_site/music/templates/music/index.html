@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="{% static 'index.css'%}">
 </head>
 <body>
+  <a href="/music/">Музыка</a>
     {% for post in posts %}
   <ul>
     <li>
@@ -20,6 +21,7 @@
   <p>{{ post.text }}</p>    
   <a href="">все записи группы</a>
   {% if not forloop.last %}<hr>{% endif %}
-{% endfor %}
+{% endfor %}<br>
+  <a href="/music/">Музыка</a>
 </body>
 </html>
