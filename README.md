@@ -7,7 +7,6 @@
 - [Главная страница](#что-это)  
 - [Технический стек](#технический-стек)  
 - [Как запустить локально](#как-запустить-локально)  
-- [Структура проекта](#структура-проекта)  
 - [Лицензия](#лицензия)
 
 ## Что это?
@@ -37,10 +36,30 @@ git clone https://github.com/JoyHubN/djng.git
 
 2. Перейдите в папку проекта
 ```bash
-cd djng/my_site
+cd djng
 ```
 
-3. Запустите
+3. Создайте виртуальное окружение
+
+```bash
+python -m venv .venv
+source .venv/bin/activate    # Linux/Mac
+.venv\Scripts\activate       # Windows
+```
+
+5. Установить зависимости
+```bash
+pip install -r requirements.txt
+```
+
+6. Примените миграции и создайте суперпользователя
+
+```bash
+python manage.py migrate
+python manage.py createsuperuser
+```
+
+7. Запустите
 ```bash
 make run
 ```
