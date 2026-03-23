@@ -1,5 +1,5 @@
 from django.core.handlers.wsgi import WSGIRequest
-from django.http import HttpResponse
+from django.http import HttpResponse, HttpResponseNotFound
 from django.shortcuts import render
 from django.template import loader
 
@@ -9,11 +9,26 @@ from parse_hitmos import EnteredTrack
 # Create your views here.
 
 def index(request):
-    posts = Post.objects.order_by('-pub_date')[:10]
-    context = {
-        'posts': posts,
-    }
-    return render(request, 'music/index.html', context)
+    context = {}
+    flag_search = False
+
+    index = 'music/index.html'
+
+    if request.GET != '/':
+        q = request.GET.get('q')
+        if q:
+            flag_search = True
+            result = Post.objects.filter(text__contains = q)
+            
+            context['quest'] = q
+            context['posts'] = result
+        else:    
+            posts = Post.objects.order_by('-pub_date')[:10]
+            context['posts'] = posts
+
+    context['search'] = flag_search
+    return render(request, index, context)
+
 
 def categories(request: WSGIRequest, genre: str):
     req = dict(request) if request else None  
@@ -29,3 +44,7 @@ def all_music(request):
 def tracks_rock(request):
     data = EnteredTrack('limp bizkit', 40).get_all
     return render(request, 'music/rock_tracks.html', context=data)
+
+
+def page_not_found(request, exception):
+    return HttpResponseNotFound('<h1>Страница не найдена</h1>')

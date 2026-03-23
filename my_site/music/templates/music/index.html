@@ -6,22 +6,43 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Главная страница</title>
     <link rel="stylesheet" href="{% static 'index.css'%}">
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+      crossorigin="anonymous"
+    />
 </head>
 <body>
-  <a href="/music/">Музыка</a>
-    {% for post in posts %}
-  <ul>
-    <li>
-      Автор: {{ post.author.get_full_name }}
-    </li>
-    <li>
-      Дата публикации: {{ post.pub_date|date:"d E Y" }}
-    </li>
-  </ul>
-  <p>{{ post.text }}</p>    
-  <a href="">все записи группы</a>
-  {% if not forloop.last %}<hr>{% endif %}
-{% endfor %}<br>
-  <a href="/music/">Музыка</a>
+  <div class="card">
+      <div class="card-body">
+
+        <form class="form-inline" action="/">
+          <div class="form-row">
+          <input name="q" class="form-control form-control-lg" type="search" 
+            placeholder="Поиск" {% if keyword %}value="{{ keyword }}"{% endif %}>
+          <button class="btn" type="submit">Найти</button>
+          </div>
+        </form>
+        </div>
+      </div>
+  {% if search %}
+    <div class="search-info">
+      Поиск по: <code>{{ quest }}</code> | Найдено: <strong>{{ posts|length }}</strong>
+  </div>
+  {% endif %}
+
+  {% for post in posts %}
+    <div class="post-item">
+      <h3>Автор: {{ post.author.get_full_name }}</h3>
+      <time>{{ post.pub_date|date:"d E Y" }}</time>
+      <p>{{ post.text }}</p>
+      <a href="">все записи группы</a>
+    </div>
+  {% empty %}
+    <div class="empty-message">
+      Список пустой или ничего не найдено
+    </div>
+  {% endfor %}
 </body>
 </html>
