@@ -9,3 +9,5 @@ urlpatterns = [
     path('music/rock/', views.rock),
     path('music/rock/tracks/', views.tracks_rock),
 ]
+
+handler404 = views.page_not_found
