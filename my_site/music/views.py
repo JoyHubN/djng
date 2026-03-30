@@ -1,4 +1,5 @@
 from django.core.handlers.wsgi import WSGIRequest
+from django.db.models import Q
 from django.http import HttpResponse, HttpResponseNotFound
 from django.shortcuts import render
 from django.template import loader
@@ -56,3 +57,37 @@ def tracks_rock(request):
 
 def page_not_found(request, exception):
     return HttpResponseNotFound('<h1>Страница не найдена</h1>')
+
+
+def posts(request):
+    context = {}
+    flag_search = False
+    index = 'music/index.html'
+
+    get_data = request.GET
+
+    if get_data.get('filter'):
+        if get_data['filter'] == 'author':
+            if get_data.get('q'):
+                quest = get_data['q'].split(' ')
+
+                query = Q()
+
+                for part in quest:
+                    query &= (
+                        Q(author__first_name__icontains=part) | 
+                        Q(author__last_name__icontains=part)
+                    ) 
+
+                posts_result = Post.objects.filter(query)
+                
+                if posts_result:
+                    flag_search = True
+                    context['quest'] = ' '.join(quest)
+                    context['posts'] = posts_result
+
+    
+    
+    context['search'] = flag_search
+                
+    return render(request, index, context)

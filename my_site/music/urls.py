@@ -5,6 +5,7 @@ app_name = 'music'
 
 urlpatterns = [
     path('', views.index, name='index'),
+    path('posts/',views.posts, name='posts'),
     path('music/', views.all_music, name='all_music'),
     path('music/categories/<str:genre>/', views.categories, name='categories'),
     path('music/rock/', views.rock, name='rock'),
