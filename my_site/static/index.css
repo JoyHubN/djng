@@ -1,3 +1,4 @@
+/* static/index.css — Полная версия */
 
 :root {
   --bg-dark:        #0a0a0e;
@@ -27,13 +28,14 @@ body {
   padding: 24px 16px;
 }
 
-/* Поисковая форма */
+/* ==================== ПОИСКОВАЯ ФОРМА ==================== */
+
 .card {
   background: var(--card-bg);
   border: 1px solid var(--border);
-  border-radius: 12px;
-  box-shadow: 0 8px 25px rgba(0,0,0,0.6);
-  margin-bottom: 40px;
+  border-radius: 14px;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.65);
+  margin-bottom: 45px;
   overflow: hidden;
   transition: all 0.3s ease;
 }
@@ -44,52 +46,109 @@ body {
 }
 
 .card-body {
-  padding: 28px;
+  padding: 32px 28px;
 }
 
+/* Форма поиска */
 .form-inline {
   display: flex;
+  align-items: center;
   flex-wrap: wrap;
+  gap: 15px;
+}
+
+.form-row {
+  display: flex;
+  flex: 1;
   gap: 12px;
+  min-width: 280px;
 }
 
 .form-control-lg {
-  flex: 1 1 320px;
+  flex: 1;
   background: #1e1e26;
-  border: 1px solid #3a3a44;
+  border: 2px solid #3a3a44;
   color: white;
-  border-radius: 10px;
+  border-radius: 12px;
   padding: 16px 20px;
-  font-size: 1.15rem;
-  transition: all 0.3s;
+  font-size: 1.18rem;
+  height: 54px;
+  transition: all 0.3s ease;
 }
 
 .form-control-lg:focus {
   border-color: var(--accent-red);
   box-shadow: var(--glow-red);
   background: #22222a;
+  outline: none;
 }
 
+/* Кнопка "Найти" */
 .btn {
-  background: var(--accent-red);
+  background: linear-gradient(135deg, var(--accent-red), var(--accent-red-dark));
   border: none;
   color: white;
   font-weight: 700;
   padding: 16px 32px;
-  border-radius: 10px;
+  border-radius: 12px;
   font-size: 1.1rem;
   cursor: pointer;
-  transition: all 0.25s ease;
-  box-shadow: 0 4px 12px rgba(230, 57, 70, 0.3);
+  height: 54px;
+  white-space: nowrap;
+  transition: all 0.3s ease;
+  box-shadow: 0 5px 15px rgba(230, 57, 70, 0.4);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
 }
 
 .btn:hover {
-  background: var(--accent-red-dark);
-  transform: scale(1.05);
+  background: linear-gradient(135deg, #ff4d5c, #e02233);
+  transform: translateY(-3px);
   box-shadow: var(--glow-red);
 }
 
-/* Результаты поиска */
+/* Блок с именем пользователя */
+.name {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  font-size: 1.05rem;
+}
+
+.name p {
+  margin: 0;
+  font-weight: 600;
+  color: #ffdd99;
+  background: rgba(255, 255, 255, 0.08);
+  padding: 8px 14px;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+.name p:hover {
+  background: rgba(230, 57, 70, 0.15);
+  transform: scale(1.03);
+}
+
+.name a {
+  color: #ff8a8a;
+  text-decoration: none;
+  font-weight: 500;
+  padding: 8px 16px;
+  border: 1px solid #ff8a8a;
+  border-radius: 8px;
+  transition: all 0.25s ease;
+  font-size: 0.98rem;
+}
+
+.name a:hover {
+  background: #e63946;
+  color: white;
+  border-color: #e63946;
+}
+
+/* ==================== РЕЗУЛЬТАТЫ ПОИСКА ==================== */
+
 .search-info {
   text-align: center;
   margin: 32px 0;
@@ -105,7 +164,8 @@ body {
   font-weight: 500;
 }
 
-/* Посты */
+/* ==================== ПОСТЫ ==================== */
+
 .post-item {
   background: var(--card-bg);
   border: 1px solid var(--border);
@@ -195,19 +255,38 @@ a[href="/music/"]:hover {
   text-shadow: var(--glow-red);
 }
 
-/* Адаптивность */
-@media (max-width: 576px) {
-  .card-body {
-    padding: 20px;
-  }
+/* ==================== АДАПТИВНОСТЬ ==================== */
+
+@media (max-width: 768px) {
   .form-inline {
     flex-direction: column;
+    align-items: stretch;
   }
+  
+  .form-row {
+    width: 100%;
+  }
+  
   .btn {
     width: 100%;
     padding: 14px;
   }
+  
+  .name {
+    justify-content: center;
+  }
+  
   .post-item {
+    padding: 20px;
+  }
+}
+
+@media (max-width: 576px) {
+  body {
+    padding: 16px;
+  }
+  
+  .card-body {
     padding: 20px;
   }
 }

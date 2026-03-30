@@ -23,6 +23,14 @@
             placeholder="Поиск" {% if keyword %}value="{{ keyword }}"{% endif %}>
           <button class="btn" type="submit">Найти</button>
           </div>
+          <div class="name">
+          {% if user.is_authenticated %}
+            <p>{{ user.first_name|default:user.username }}</p>
+            <a href="{% url 'users:logout' %}">Выйти</a>
+          {% else %}
+            <a href="{% url 'users:login' %}">Войти</a>
+          {% endif %}
+        </div>
         </form>
         </div>
       </div>

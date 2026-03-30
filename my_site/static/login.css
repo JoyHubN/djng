@@ -1,0 +1,217 @@
+/* static/css/login.css */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* ==================== БАЗОВЫЕ СТИЛИ ==================== */
+
+body {
+  background: linear-gradient(135deg, #0a0a0e, #1a001f);
+  color: #e0e0e0;
+  font-family: 'Roboto', sans-serif;
+  min-height: 100vh;
+  line-height: 1.6;
+}
+
+/* Навигация (оставил как было) */
+.navbar {
+  background: rgba(10, 10, 14, 0.95);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid #333;
+  padding: 16px 40px;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo a {
+  font-size: 2.3rem;
+  font-weight: 900;
+  text-decoration: none;
+  color: #e63946;
+  letter-spacing: -1.5px;
+}
+
+.logo span {
+  color: #f48c06;
+}
+
+.navbar ul {
+  display: flex;
+  list-style: none;
+  gap: 28px;
+}
+
+.navbar ul a {
+  color: #ccc;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s;
+}
+
+.navbar ul a:hover {
+  color: #e63946;
+}
+
+/* Основной контейнер */
+.container {
+  max-width: 1100px;
+  margin: 40px auto;
+  padding: 0 20px;
+}
+
+/* ==================== СТИЛИ СТРАНИЦЫ ЛОГИНА ==================== */
+
+.login-container {
+  background: rgba(20, 20, 28, 0.96);
+  border: 1px solid #444;
+  border-radius: 16px;
+  padding: 50px 40px;
+  width: 100%;
+  max-width: 440px;
+  margin: 80px auto;
+  box-shadow: 0 20px 55px rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(12px);
+}
+
+.logo {
+  text-align: center;
+  margin-bottom: 35px;
+}
+
+.logo h1 {
+  font-size: 3rem;
+  font-weight: 900;
+  letter-spacing: -2px;
+  color: #e63946;
+  text-shadow: 0 0 25px rgba(230, 57, 70, 0.7);
+}
+
+.logo span {
+  color: #f48c06;
+}
+
+h2 {
+  text-align: center;
+  margin-bottom: 35px;
+  font-size: 1.75rem;
+  color: #f0f0f0;
+}
+
+/* Поля формы */
+.form-group {
+  margin-bottom: 22px;
+}
+
+label {
+  display: block;
+  margin-bottom: 8px;
+  color: #aaa;
+  font-size: 0.98rem;
+}
+
+input[type="text"],
+input[type="password"],
+input[type="email"] {
+  width: 100%;
+  padding: 15px 18px;
+  background: #1c1c24;
+  border: 1px solid #555;
+  border-radius: 10px;
+  color: white;
+  font-size: 1.05rem;
+  transition: all 0.3s ease;
+}
+
+input:focus {
+  border-color: #e63946;
+  box-shadow: 0 0 0 4px rgba(230, 57, 70, 0.25);
+  outline: none;
+  background: #25252f;
+}
+
+/* ==================== КНОПКА "ВОЙТИ" ==================== */
+
+.btn-login {
+  width: 100%;
+  padding: 16px;
+  background: linear-gradient(135deg, #e63946, #c1121f);
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-size: 1.2rem;
+  font-weight: 700;
+  cursor: pointer;
+  margin-top: 15px;
+  transition: all 0.35s ease;
+  box-shadow: 0 6px 20px rgba(230, 57, 70, 0.45);
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+}
+
+.btn-login:hover {
+  background: linear-gradient(135deg, #ff4d5c, #e02233);
+  transform: translateY(-4px);
+  box-shadow: 0 12px 30px rgba(230, 57, 70, 0.7);
+}
+
+/* ==================== СТИЛИ ДЛЯ СООБЩЕНИЯ (message) ==================== */
+
+.message {
+  padding: 14px 18px;
+  margin-bottom: 25px;
+  border-radius: 8px;
+  font-size: 1.02rem;
+  text-align: center;
+  font-weight: 500;
+  border-left: 5px solid #e63946;
+  background: rgba(230, 57, 70, 0.15);
+  color: #ff8a8a;
+  box-shadow: 0 2px 8px rgba(230, 57, 70, 0.2);
+}
+
+/* Ссылки */
+.links {
+  text-align: center;
+  margin-top: 30px;
+}
+
+.links a {
+  color: #f48c06;
+  text-decoration: none;
+  font-size: 1rem;
+}
+
+.links a:hover {
+  color: #ffbb33;
+  text-decoration: underline;
+}
+
+/* Ошибки формы (если form.errors) */
+.errorlist {
+  color: #ff6b6b;
+  background: rgba(255, 107, 107, 0.12);
+  padding: 12px 16px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  list-style: none;
+  font-size: 0.96rem;
+}
+
+/* Адаптивность */
+@media (max-width: 500px) {
+  .login-container {
+    padding: 35px 25px;
+    margin: 40px 10px;
+  }
+  
+  .logo h1 {
+    font-size: 2.5rem;
+  }
+}

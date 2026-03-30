@@ -18,9 +18,9 @@ from django.contrib import admin
 from django.urls import include, path
 
 
-from music import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include('music.urls')),
+    path('', include('music.urls', namespace='music')),
+    path('users/', include('users.urls', namespace='users'))
 ]

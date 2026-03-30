@@ -35,8 +35,8 @@
 </nav>
 
 <div class="container">
-  <h1>Linkin Park – Рок подборки</h1>
-  <p class="subtitle">10 треков • Найдено на основе запроса «Linkin Park»</p>
+  <h1>{{ first_author }} – Рок подборки</h1>
+  <p class="subtitle">{{items|length}} треков • Найдено на основе запроса «{{ first_author }}»</p>
 
   <div class="track-list">
     {% for track in items %}

@@ -42,7 +42,15 @@ def all_music(request):
 
 
 def tracks_rock(request):
-    data = EnteredTrack('limp bizkit', 40).get_all
+    result = EnteredTrack('limp bizkit', 40).get_all
+    first_author = result['items'][0]['author']
+
+    data = {
+        'items': result['items'],
+        'first_author': first_author,
+        }
+
+
     return render(request, 'music/rock_tracks.html', context=data)
 
 
