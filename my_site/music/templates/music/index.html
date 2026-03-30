@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Главная страница</title>
+    <title>{{ title }}</title>
     <link rel="stylesheet" href="{% static 'index.css'%}">
     <link
       rel="stylesheet"
@@ -24,6 +24,7 @@
           <button class="btn" type="submit">Найти</button>
           </div>
           <div class="name">
+            <a href="{% url 'music:index' %}">Главная</a>
           {% if user.is_authenticated %}
             <p>{{ user.first_name|default:user.username }}</p>
             <a href="{% url 'users:logout' %}">Выйти</a>
@@ -45,7 +46,10 @@
       <h3>Автор: {{ post.author.get_full_name }}</h3>
       <time>{{ post.pub_date|date:"d E Y" }}</time>
       <p>{{ post.text }}</p>
-      <a href="/posts/?filter=author&q={{ post.author.get_full_name }}">все записи автора</a>
+      {% if filter != 'author' %}
+        <a href="/posts/?filter=author&q={{ post.author.get_full_name }}">все записи автора</a>
+      {% endif %}
+      
     </div>
   {% empty %}
     <div class="empty-message">

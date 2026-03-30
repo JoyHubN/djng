@@ -2,7 +2,6 @@ from django.core.handlers.wsgi import WSGIRequest
 from django.db.models import Q
 from django.http import HttpResponse, HttpResponseNotFound
 from django.shortcuts import render
-from django.template import loader
 
 from .models import Post
 from parse_hitmos import EnteredTrack
@@ -14,8 +13,10 @@ def index(request):
     flag_search = False
 
     index = 'music/index.html'
+    context['title'] = 'Главная страница'
 
-    if request.GET != '/':
+    if request.GET:
+        context['title'] = 'Поиск по тексту'
         q = request.GET.get('q')
         if q:
             flag_search = True
@@ -26,6 +27,10 @@ def index(request):
         else:    
             posts = Post.objects.order_by('-pub_date')[:10]
             context['posts'] = posts
+    
+    elif request.path == '/':
+        posts = Post.objects.order_by('-pub_date')[:10]
+        context['posts'] = posts
 
     context['search'] = flag_search
     return render(request, index, context)
@@ -83,11 +88,13 @@ def posts(request):
                 
                 if posts_result:
                     flag_search = True
+                    context['filter'] = get_data['filter']
                     context['quest'] = ' '.join(quest)
                     context['posts'] = posts_result
+                    
 
     
-    
+    context['title'] = 'Поиск по автору'
     context['search'] = flag_search
                 
     return render(request, index, context)
