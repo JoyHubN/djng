@@ -1,5 +1,6 @@
 from django import forms
 from django.contrib.auth import get_user_model
+from django.contrib.auth.forms import UserCreationForm
 
 
 class LoginUserForm(forms.Form):
@@ -21,7 +22,7 @@ class LoginUserForm(forms.Form):
         )
     )
 
-class RegisterUserForm(forms.ModelForm):
+class RegisterUserForm(UserCreationForm):
     username = forms.CharField(
         label='Логин', 
         widget=forms.TextInput(
@@ -31,7 +32,7 @@ class RegisterUserForm(forms.ModelForm):
         )
     )
 
-    password = forms.CharField(
+    password1 = forms.CharField(
         label='Пароль', 
         widget=forms.PasswordInput(
             attrs={
@@ -51,21 +52,14 @@ class RegisterUserForm(forms.ModelForm):
 
     class Meta:
         model = get_user_model()
-        fields = ['username', 'email', 'first_name', 'last_name', 'password', 'password2']
+        fields = ['username', 'email', 'first_name', 'last_name', 'password1', 'password2']
         labels = {
             'email':'E-mail',
             'first_name': 'Имя',
             'last_name': 'Фамилия'
         }
 
-    
-    def clean_password2(self):
-        cd = self.cleaned_data
-        if cd['password'] != cd['password2']:
-            raise forms.ValidationError('Пароли не совпадают')
-        
-        return cd['password']
-    
+
     def clean_email(self):
         email = self.cleaned_data['email']
 
