@@ -1,4 +1,4 @@
-/* static/index.css — Полная версия */
+/* static/index.css — Главная страница */
 
 :root {
   --bg-dark:        #0a0a0e;
@@ -49,7 +49,6 @@ body {
   padding: 32px 28px;
 }
 
-/* Форма поиска */
 .form-inline {
   display: flex;
   align-items: center;
@@ -80,10 +79,8 @@ body {
   border-color: var(--accent-red);
   box-shadow: var(--glow-red);
   background: #22222a;
-  outline: none;
 }
 
-/* Кнопка "Найти" */
 .btn {
   background: linear-gradient(135deg, var(--accent-red), var(--accent-red-dark));
   border: none;
@@ -97,8 +94,6 @@ body {
   white-space: nowrap;
   transition: all 0.3s ease;
   box-shadow: 0 5px 15px rgba(230, 57, 70, 0.4);
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
 }
 
 .btn:hover {
@@ -119,7 +114,7 @@ body {
   margin: 0;
   font-weight: 600;
   color: #ffdd99;
-  background: rgba(255, 255, 255, 0.08);
+  background: rgba(255, 221, 153, 0.12);
   padding: 8px 14px;
   border-radius: 8px;
   transition: all 0.3s ease;
@@ -131,7 +126,7 @@ body {
 }
 
 .name a {
-  /* color: #ff8a8a; */
+  color: #ff8a8a;
   text-decoration: none;
   font-weight: 500;
   padding: 8px 16px;
@@ -147,8 +142,7 @@ body {
   border-color: #e63946;
 }
 
-/* ==================== РЕЗУЛЬТАТЫ ПОИСКА ==================== */
-
+/* Результаты поиска */
 .search-info {
   text-align: center;
   margin: 32px 0;
@@ -164,8 +158,7 @@ body {
   font-weight: 500;
 }
 
-/* ==================== ПОСТЫ ==================== */
-
+/* Посты */
 .post-item {
   background: var(--card-bg);
   border: 1px solid var(--border);
@@ -186,7 +179,6 @@ body {
   color: white;
   font-size: 1.55rem;
   margin-bottom: 10px;
-  text-shadow: 0 2px 8px rgba(0,0,0,0.7);
 }
 
 .post-item time {
@@ -239,76 +231,19 @@ hr {
   border-radius: 12px;
 }
 
-/* Ссылка на музыку */
-a[href="/music/"] {
-  display: inline-block;
-  margin: 20px 0 40px;
-  color: var(--accent-red);
-  font-weight: 700;
-  font-size: 1.2rem;
-  text-decoration: none;
-  transition: all 0.25s;
-}
-
-a[href="/music/"]:hover {
-  color: white;
-  text-shadow: var(--glow-red);
-}
-
-/* Кнопка "Создать статью" */
-.btn-create-post {
-  background: linear-gradient(135deg, #f48c06, #ffaa33);
-  color: #111;
-  padding: 8px 18px;
-  border-radius: 8px;
-  text-decoration: none;
-  font-weight: 700;
-  font-size: 0.98rem;
-  transition: all 0.3s ease;
-  box-shadow: 0 4px 12px rgba(244, 140, 6, 0.4);
-  white-space: nowrap;
-}
-
-.btn-create-post:hover {
-  background: linear-gradient(135deg, #ffaa33, #ffcc66);
-  transform: translateY(-2px);
-  box-shadow: 0 6px 18px rgba(255, 170, 51, 0.6);
-  color: #111;
-}
-
-/* Улучшение блока .name */
-.name {
-  display: flex;
-  align-items: center;
-  gap: 16px;
-  flex-wrap: wrap;
-}
-
-.name a, .name p {
-  margin: 0;
-}
-
-/* ==================== АДАПТИВНОСТЬ ==================== */
-
+/* Адаптивность */
 @media (max-width: 768px) {
   .form-inline {
     flex-direction: column;
     align-items: stretch;
   }
-  
-  .form-row {
-    width: 100%;
-  }
-  
   .btn {
     width: 100%;
     padding: 14px;
   }
-  
   .name {
     justify-content: center;
   }
-  
   .post-item {
     padding: 20px;
   }
@@ -318,7 +253,6 @@ a[href="/music/"]:hover {
   body {
     padding: 16px;
   }
-  
   .card-body {
     padding: 20px;
   }

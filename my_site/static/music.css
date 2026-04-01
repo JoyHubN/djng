@@ -1,197 +1,200 @@
-    :root {
-      --rock-red:     #d32f2f;
-      --rock-dark:    #121212;
-      --rock-black:   #000000;
-      --rock-gray:    #1e1e1e;
-      --rock-light:   #e0e0e0;
-      --rock-accent:  #ffca28;
-      --gray-50:      #fafafa;
-      --gray-300:     #e0e0e0;
-      --gray-600:     #757575;
-      --gray-800:     #212121;
-    }
+/* static/css/music.css — Главная страница музыки */
 
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+:root {
+  --rock-red:     #e63946;
+  --rock-fire:    #ff4d5c;
+  --rock-dark:    #0a0a0e;
+  --rock-black:   #000000;
+  --rock-gray:    #1a1a1f;
+  --rock-light:   #e0e0e0;
+  --rock-accent:  #f48c06;
+  --border:       #2a2a32;
+  --glow-red:     0 0 15px rgba(230, 57, 70, 0.6);
+}
 
-    body {
-      font-family: 'Google Sans', 'Roboto', system-ui, sans-serif;
-      background: var(--rock-dark);
-      color: var(--rock-light);
-      line-height: 1.5;
-      min-height: 100vh;
-    }
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
-    header {
-      background: var(--rock-black);
-      border-bottom: 1px solid #333;
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      height: 64px;
-      padding: 0 24px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
+body {
+  font-family: 'Google Sans', 'Roboto', system-ui, sans-serif;
+  background: var(--rock-dark);
+  color: var(--rock-light);
+  line-height: 1.5;
+  min-height: 100vh;
+}
 
-    .logo {
-      font-size: 26px;
-      font-weight: 700;
-      color: var(--rock-red);
-      letter-spacing: -0.8px;
-      text-transform: uppercase;
-    }
+/* ==================== HEADER ==================== */
 
-    .logo span {
-      color: var(--rock-accent);
-    }
+header {
+  background: var(--rock-black);
+  border-bottom: 1px solid #333;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  height: 64px;
+  padding: 0 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
 
-    nav a {
-      margin-left: 32px;
-      color: #b0b0b0;
-      text-decoration: none;
-      font-weight: 500;
-      font-size: 15px;
-      transition: color 0.2s;
-    }
+.logo {
+  font-size: 26px;
+  font-weight: 700;
+  color: var(--rock-red);
+  letter-spacing: -0.8px;
+  text-transform: uppercase;
+}
 
-    nav a:hover,
-    nav a.active {
-      color: var(--rock-red);
-    }
+.logo span {
+  color: var(--rock-accent);
+}
 
-    main {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 60px 24px 80px;
-    }
+nav a {
+  margin-left: 32px;
+  color: #b0b0b0;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 15px;
+  transition: color 0.2s;
+}
 
-    h1 {
-      font-size: 56px;
-      font-weight: 700;
-      letter-spacing: -1.5px;
-      margin-bottom: 16px;
-      background: linear-gradient(90deg, var(--rock-red), #ff7043, var(--rock-accent));
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-    }
+nav a:hover,
+nav a.active {
+  color: var(--rock-red);
+}
 
-    .subtitle {
-      font-size: 22px;
-      color: #b0bec5;
-      margin-bottom: 56px;
-      max-width: 720px;
-    }
+/* ==================== MAIN ==================== */
 
-    .cards {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-      gap: 28px;
-    }
+main {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 60px 24px 80px;
+}
 
-    .card {
-      background: var(--rock-gray);
-      border-radius: 16px;
-      overflow: hidden;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.6);
-      transition: all 0.3s cubic-bezier(0.4,0,0.2,1);
-      cursor: pointer;
-      position: relative;
-      border: 1px solid #333;
-    }
+h1 {
+  font-size: 56px;
+  font-weight: 700;
+  letter-spacing: -1.5px;
+  margin-bottom: 16px;
+  background: linear-gradient(90deg, var(--rock-red), #ff7043, var(--rock-accent));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
 
-    .card:hover {
-      transform: translateY(-8px) scale(1.02);
-      box-shadow: 0 12px 40px rgba(211,47,47,0.3);
-      border-color: var(--rock-red);
-    }
+.subtitle {
+  font-size: 22px;
+  color: #b0bec5;
+  margin-bottom: 56px;
+  max-width: 720px;
+}
 
-    .card-cover {
-      height: 200px;
-      background-size: cover;
-      background-position: center;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 48px;
-      font-weight: 800;
-      color: white;
-      text-shadow: 0 3px 12px rgba(0,0,0,0.9);
-    }
+/* ==================== КАРТОЧКИ ==================== */
 
-    .card-body {
-      padding: 24px 24px 80px 24px;
-    }
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 28px;
+}
 
-    .card-title {
-      font-size: 20px;
-      font-weight: 600;
-      margin-bottom: 8px;
-      color: white;
-    }
+.card {
+  background: var(--rock-gray);
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.6);
+  transition: all 0.3s cubic-bezier(0.4,0,0.2,1);
+  position: relative;
+  border: 1px solid #333;
+  cursor: pointer;
+}
 
-    .card-subtitle {
-      font-size: 15px;
-      color: #b0b0b0;
-      line-height: 1.4;
-    }
+.card:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 12px 40px rgba(230, 57, 70, 0.35);
+  border-color: var(--rock-red);
+}
 
-    .play-btn {
-      position: absolute;
-      bottom: 20px;
-      right: 20px;
-      width: 56px;
-      height: 56px;
-      background: var(--rock-red);
-      color: white;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 28px;
-      box-shadow: 0 6px 20px rgba(211,47,47,0.5);
-      transition: all 0.25s;
-      text-decoration: none;
-    }
+.card-cover {
+  height: 200px;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 48px;
+  font-weight: 800;
+  color: white;
+  text-shadow: 0 3px 12px rgba(0,0,0,0.9);
+}
 
-    .play-btn:hover {
-      transform: scale(1.15);
-      background: #e53935;
-    }
+.card-body {
+  padding: 24px 24px 80px 24px;
+}
 
+.card-title {
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: white;
+}
 
-    .play-sts-btn {
-      position: absolute;
-      bottom: 20px;
-      right: 20px;
-      width: 56px;
-      height: 56px;
-      color: white;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 28px;
-      box-shadow: 0 6px 20px rgba(255, 255, 255, 0.5);
-      transition: all 0.25s;
-      text-decoration: none;
-    }
+.card-subtitle {
+  font-size: 15px;
+  color: #b0b0b0;
+  line-height: 1.4;
+}
 
-    .play-sts-btn:hover {
-      transform: scale(1.15);
-      background: #606076;
-    }
+/* Кнопки на карточках */
+.play-btn,
+.play-sts-btn {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  width: 56px;
+  height: 56px;
+  background: var(--rock-red);
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 28px;
+  box-shadow: 0 6px 20px rgba(230, 57, 70, 0.5);
+  transition: all 0.25s;
+  text-decoration: none;
+}
 
-    footer {
-      text-align: center;
-      padding: 60px 20px 40px;
-      color: #757575;
-      font-size: 14px;
-      border-top: 1px solid #333;
-      margin-top: 100px;
-    }
+.play-btn:hover,
+.play-sts-btn:hover {
+  transform: scale(1.15);
+  background: #ff4d5c;
+}
+
+/* Футер */
+footer {
+  text-align: center;
+  padding: 60px 20px 40px;
+  color: #757575;
+  font-size: 14px;
+  border-top: 1px solid #333;
+  margin-top: 100px;
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+  main {
+    padding: 40px 16px 60px;
+  }
+  
+  h1 {
+    font-size: 42px;
+  }
+  
+  .cards {
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  }
+}

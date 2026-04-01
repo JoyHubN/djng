@@ -1,32 +1,76 @@
-.field-error,
-.errorlist,
-.message {
-  color: #ffaa33;
-  background: rgba(255, 170, 51, 0.08);
-  border-left: 5px solid #ffaa33;
-  padding: 12px 16px;
-  margin: 12px 0 18px 0;
-  border-radius: 8px;
-  font-size: 0.97rem;
+/* static/css/register.css — Страница регистрации */
+
+:root {
+  --bg-dark:        #0a0a0e;
+  --card-bg:        #141418;
+  --text-light:     #f0f0f5;
+  --text-muted:     #a8a8b0;
+  --accent-red:     #e63946;
+  --accent-red-dark:#c1121f;
+  --accent-orange:  #f48c06;
+  --border:         #2a2a32;
+  --glow-red:       0 0 15px rgba(230, 57, 70, 0.6);
+  --glow-orange:    0 0 12px rgba(244, 140, 6, 0.5);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: linear-gradient(135deg, #0a0a0e, #1a001f);
+  color: var(--text-light);
+  font-family: 'Roboto', sans-serif;
+  min-height: 100vh;
+  line-height: 1.6;
+}
+
+/* Навигация (общая) */
+.navbar {
+  background: rgba(10, 10, 14, 0.95);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid #333;
+  padding: 16px 40px;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo a {
+  font-size: 2.3rem;
+  font-weight: 900;
+  text-decoration: none;
+  color: #e63946;
+  letter-spacing: -1.5px;
+}
+
+.logo span {
+  color: #f48c06;
+}
+
+.navbar ul {
+  display: flex;
+  list-style: none;
+  gap: 28px;
+}
+
+.navbar ul a {
+  color: #ccc;
+  text-decoration: none;
   font-weight: 500;
-  box-shadow: 
-    0 0 8px rgba(255, 170, 51, 0.4),
-    0 0 20px rgba(255, 170, 51, 0.25),
-    0 0 35px rgba(255, 170, 51, 0.15);
-  animation: neon-pulse 2s infinite alternate ease-in-out;
+  transition: color 0.3s;
 }
 
-.field-error {
-  border-left: 4px solid #ffaa33;
-  padding: 10px 14px;
-  margin-top: 6px;
-  box-shadow: 
-    0 0 6px rgba(255, 170, 51, 0.5),
-    0 0 15px rgba(255, 170, 51, 0.3);
+.navbar ul a:hover {
+  color: #e63946;
 }
 
-
-/* ==================== ВЫДЕЛЕНИЕ БЛОКА РЕГИСТРАЦИИ — КРАСНЫЙ НЕОН ==================== */
+/* ==================== БЛОК РЕГИСТРАЦИИ ==================== */
 
 .register-container {
   background: rgba(22, 15, 18, 0.97);
@@ -37,8 +81,8 @@
   max-width: 460px;
   margin: 60px auto;
   box-shadow: 
-    0 0 20px rgba(230, 57, 70, 0.5),
-    0 0 40px rgba(230, 57, 70, 0.3),
+    0 0 25px rgba(230, 57, 70, 0.5),
+    0 0 45px rgba(230, 57, 70, 0.35),
     0 25px 70px rgba(0, 0, 0, 0.9);
   backdrop-filter: blur(12px);
   transition: all 0.4s ease;
@@ -47,12 +91,12 @@
 .register-container:hover {
   border-color: #ff4d5c;
   box-shadow: 
-    0 0 30px rgba(230, 57, 70, 0.7),
-    0 0 55px rgba(230, 57, 70, 0.4),
+    0 0 35px rgba(230, 57, 70, 0.7),
+    0 0 60px rgba(230, 57, 70, 0.45),
     0 30px 80px rgba(0, 0, 0, 0.95);
 }
 
-/* Логотип регистрации */
+/* Логотип */
 .register-container .logo h1 {
   color: #ff4d5c;
   text-shadow: 
@@ -61,25 +105,118 @@
     0 0 45px #e02233;
 }
 
-/* Заголовок */
 .register-container h2 {
-  color: #ffaa99;
+  text-align: center;
+  margin-bottom: 35px;
+  font-size: 1.75rem;
+  color: #ffdd99;
   text-shadow: 0 0 10px rgba(230, 57, 70, 0.5);
 }
 
-/* Кнопка "Зарегистрироваться" — красный неон */
-.register-container .btn-login {
-  background: linear-gradient(135deg, #e63946, #c1121f);
-  box-shadow: 0 6px 20px rgba(230, 57, 70, 0.6);
-}
-
-.register-container .btn-login:hover {
-  background: linear-gradient(135deg, #ff4d5c, #e02233);
-  box-shadow: 0 10px 35px rgba(230, 57, 70, 0.8);
-  transform: translateY(-4px);
-}
-
-/* Увеличиваем отступы */
-.register-container .form-group {
+/* Поля формы */
+.form-group {
   margin-bottom: 26px;
+}
+
+label {
+  display: block;
+  margin-bottom: 8px;
+  color: #aaa;
+  font-size: 0.98rem;
+}
+
+input[type="text"],
+input[type="password"],
+input[type="email"] {
+  width: 100%;
+  padding: 15px 18px;
+  background: #1c1c24;
+  border: 1px solid #555;
+  border-radius: 10px;
+  color: white;
+  font-size: 1.05rem;
+  transition: all 0.3s ease;
+}
+
+input:focus {
+  border-color: #e63946;
+  box-shadow: 0 0 0 4px rgba(230, 57, 70, 0.3);
+  outline: none;
+  background: #25252f;
+}
+
+/* Кнопка "Зарегистрироваться" */
+.btn-login {
+  width: 100%;
+  padding: 16px;
+  background: linear-gradient(135deg, #e63946, #c1121f);
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-size: 1.2rem;
+  font-weight: 700;
+  cursor: pointer;
+  margin-top: 15px;
+  transition: all 0.35s ease;
+  box-shadow: 0 6px 20px rgba(230, 57, 70, 0.5);
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+}
+
+.btn-login:hover {
+  background: linear-gradient(135deg, #ff4d5c, #e02233);
+  transform: translateY(-4px);
+  box-shadow: 0 12px 35px rgba(230, 57, 70, 0.8);
+}
+
+/* Ошибки */
+.field-error,
+.errorlist,
+.message {
+  color: #ffaa33;
+  background: rgba(255, 170, 51, 0.12);
+  border-left: 5px solid #ffaa33;
+  padding: 14px 18px;
+  margin: 12px 0 20px 0;
+  border-radius: 8px;
+  font-size: 0.97rem;
+  font-weight: 500;
+  box-shadow: 
+    0 0 10px rgba(255, 170, 51, 0.5),
+    0 0 25px rgba(255, 170, 51, 0.3);
+  animation: neon-pulse 2s infinite alternate ease-in-out;
+}
+
+@keyframes neon-pulse {
+  from { text-shadow: 0 0 6px #ffaa33; }
+  to   { text-shadow: 0 0 15px #ffaa33, 0 0 25px #ff8800; }
+}
+
+/* Ссылки */
+.links {
+  text-align: center;
+  margin-top: 30px;
+}
+
+.links a {
+  color: #f48c06;
+  text-decoration: none;
+  font-size: 1rem;
+}
+
+.links a:hover {
+  color: #ffbb33;
+  text-decoration: underline;
+}
+
+/* Адаптивность */
+@media (max-width: 500px) {
+  .register-container {
+    padding: 35px 25px;
+    margin: 40px 10px;
+  }
+  
+  .logo h1 {
+    font-size: 2.5rem;
+  }
 }
