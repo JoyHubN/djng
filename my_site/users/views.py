@@ -13,7 +13,7 @@ from .forms import LoginUserForm, RegisterUserForm
 def login_user(request):
     
     if request.user.is_authenticated:
-        return redirect('music:index')  
+        return redirect('main:index')  
 
     if request.method ==  'POST':
         form = LoginUserForm(request.POST)
@@ -24,7 +24,7 @@ def login_user(request):
 
             if user and user.is_active:
                 login(request, user)
-                return HttpResponseRedirect(reverse('music:index'))
+                return HttpResponseRedirect(reverse('main:index'))
             else:
                 return render(request, 
                               'users/login.html', 
@@ -41,13 +41,13 @@ def login_user(request):
 
 def logout_user(request):
     logout(request)
-    return HttpResponseRedirect(reverse('music:index'))
+    return HttpResponseRedirect(reverse('main:index'))
 
 
 def registration(request):
     
     if request.user.is_authenticated:
-        return redirect('music:index')
+        return redirect('main:index')
 
     if request.method == 'POST':
         form = RegisterUserForm(request.POST)
@@ -55,7 +55,7 @@ def registration(request):
         if form.is_valid():
             user = form.save(commit=False)
 
-            user.set_password(form.cleaned_data['password'])
+            user.set_password(form.cleaned_data['password1'])
             user.save()
             return render(request, 'users/register_done.html')
     else:        

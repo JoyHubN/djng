@@ -4,12 +4,14 @@ from . import views
 app_name = 'music'
 
 urlpatterns = [
+    # path('', views.index, name='index'),
     path('', views.index, name='index'),
-    path('posts/',views.posts, name='posts'),
-    path('music/', views.all_music, name='all_music'),
-    path('music/categories/<str:genre>/', views.categories, name='categories'),
-    path('music/rock/', views.rock, name='rock'),
-    path('music/rock/tracks/', views.tracks_rock, name='rock_tracks'),
+    path('categories/<str:genre>/', views.categories, name='categories'),
+    path('rock/tracks/', views.tracks_rock, name='rock_tracks'),
+    path('rock/', views.rock, name='rock'),
 ]
 
 handler404 = views.page_not_found
+
+
+

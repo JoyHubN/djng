@@ -131,7 +131,7 @@ body {
 }
 
 .name a {
-  color: #ff8a8a;
+  /* color: #ff8a8a; */
   text-decoration: none;
   font-weight: 500;
   padding: 8px 16px;
@@ -253,6 +253,39 @@ a[href="/music/"] {
 a[href="/music/"]:hover {
   color: white;
   text-shadow: var(--glow-red);
+}
+
+/* Кнопка "Создать статью" */
+.btn-create-post {
+  background: linear-gradient(135deg, #f48c06, #ffaa33);
+  color: #111;
+  padding: 8px 18px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 0.98rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(244, 140, 6, 0.4);
+  white-space: nowrap;
+}
+
+.btn-create-post:hover {
+  background: linear-gradient(135deg, #ffaa33, #ffcc66);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(255, 170, 51, 0.6);
+  color: #111;
+}
+
+/* Улучшение блока .name */
+.name {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.name a, .name p {
+  margin: 0;
 }
 
 /* ==================== АДАПТИВНОСТЬ ==================== */
