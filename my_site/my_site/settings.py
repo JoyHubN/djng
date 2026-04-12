@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'music.apps.MusicConfig',
     'users.apps.UsersConfig',
     'posts.apps.PostsConfig',
+    'profil.apps.ProfilConfig',
 ]
 
 MIDDLEWARE = [
@@ -121,3 +122,7 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
+
+
+# EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+EMAIL_FILE_PATH = os.path.join(BASE_DIR, 'sent_emails')

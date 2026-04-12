@@ -1,0 +1,180 @@
+:root {
+  --bg-dark:        #0a0a0e;
+  --card-bg:        #141418;
+  --text-light:     #f0f0f5;
+  --text-muted:     #a8a8b0;
+  --accent-red:     #e63946;
+  --accent-orange:  #f48c06;
+  --border:         #2a2a32;
+  --glow-red:       0 0 15px rgba(230, 57, 70, 0.6);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: linear-gradient(135deg, #0a0a0e, #1a001f);
+  color: var(--text-light);
+  font-family: 'Roboto', sans-serif;
+  min-height: 100vh;
+  line-height: 1.6;
+}
+
+/* Контейнер профиля */
+.profile-container {
+  background: rgba(20, 20, 28, 0.96);
+  border: 1px solid #444;
+  border-radius: 16px;
+  padding: 50px 40px;
+  width: 100%;
+  max-width: 520px;
+  margin: 60px auto;
+  box-shadow: 0 20px 55px rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(12px);
+}
+
+.logo {
+  text-align: center;
+  margin-bottom: 35px;
+}
+
+.logo h1 {
+  font-size: 3rem;
+  font-weight: 900;
+  letter-spacing: -2px;
+  color: #e63946;
+  text-shadow: 0 0 25px rgba(230, 57, 70, 0.7);
+}
+
+.logo span {
+  color: #f48c06;
+}
+
+h2 {
+  text-align: center;
+  margin-bottom: 40px;
+  font-size: 1.8rem;
+  color: #f0f0f0;
+}
+
+h3 {
+  margin: 30px 0 20px;
+  color: var(--accent-orange);
+  font-size: 1.4rem;
+}
+
+/* Поля формы */
+.form-group {
+  margin-bottom: 24px;
+}
+
+label {
+  display: block;
+  margin-bottom: 8px;
+  color: #aaa;
+  font-size: 0.98rem;
+}
+
+input[type="email"]{
+  width: 100%;
+  padding: 14px 18px;
+  background: #1c1c24;
+  border: 1px solid #555;
+  border-radius: 10px;
+  font-size: 1.05rem;
+  transition: all 0.3s ease;
+}
+
+input[type="text"],
+input[type="password"]
+{
+  width: 100%;
+  padding: 14px 18px;
+  background: #1c1c24;
+  border: 1px solid #555;
+  border-radius: 10px;
+  color: white;
+  font-size: 1.05rem;
+  transition: all 0.3s ease;
+}
+
+input:focus {
+  border-color: #e63946;
+  box-shadow: 0 0 0 4px rgba(230, 57, 70, 0.25);
+  outline: none;
+  background: #25252f;
+}
+
+/* Поле только для чтения (логин) */
+.readonly {
+  padding: 14px 18px;
+  background: #1c1c24;
+  border: 1px solid #444;
+  border-radius: 10px;
+  color: #888;
+  font-size: 1.05rem;
+
+}
+
+/* Кнопка сохранения */
+.btn-save {
+  width: 100%;
+  padding: 16px;
+  background: linear-gradient(135deg, #e63946, #c1121f);
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-size: 1.15rem;
+  font-weight: 700;
+  cursor: pointer;
+  margin-top: 20px;
+  transition: all 0.35s ease;
+  box-shadow: 0 6px 20px rgba(230, 57, 70, 0.45);
+}
+
+.btn-save:hover {
+  background: linear-gradient(135deg, #ff4d5c, #e02233);
+  transform: translateY(-3px);
+  box-shadow: 0 12px 30px rgba(230, 57, 70, 0.7);
+}
+
+/* Сообщения */
+.message,
+.errorlist,
+.field-error {
+  color: #ffaa33;
+  background: rgba(255, 170, 51, 0.12);
+  border-left: 5px solid #ffaa33;
+  padding: 14px 18px;
+  margin-bottom: 20px;
+  border-radius: 8px;
+  font-size: 0.97rem;
+  box-shadow: 0 0 10px rgba(255, 170, 51, 0.4);
+}
+
+/* Ссылки */
+.links {
+  text-align: center;
+  margin-top: 30px;
+}
+
+.links a {
+  color: #f48c06;
+  text-decoration: none;
+}
+
+.links a:hover {
+  color: #ffbb33;
+  text-decoration: underline;
+}
+
+/* Адаптивность */
+@media (max-width: 500px) {
+  .register-container, .login-container, .profile-container {
+    padding: 35px 25px;
+    margin: 40px 10px;
+  }
+}

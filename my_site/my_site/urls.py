@@ -23,5 +23,6 @@ urlpatterns = [
     path('', include('posts.url_index')),
     path('posts/', include('posts.urls', namespace='posts')),
     path('music/', include('music.urls', namespace='music')),
-    path('users/', include('users.urls', namespace='users'))
+    path('users/', include('users.urls', namespace='users')),
+    path('profile/', include('profil.urls', namespace='profile')),
 ]

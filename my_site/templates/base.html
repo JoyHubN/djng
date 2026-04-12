@@ -8,7 +8,8 @@
     <title>{% block title %}Rock Music{% endblock %}</title>
     
     <!-- Стили -->
-    <link rel="stylesheet" href="{% static 'login.css' %}">
+    <link rel="stylesheet" href="{% static 'nav.css' %}">
+    {% comment %} <link rel="stylesheet" href="{% static 'login.css' %}"> {% endcomment %}
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
     
     {% block extra_css %}{% endblock %}
@@ -25,7 +26,7 @@
                 <li><a href="{% url 'main:index' %}">Главная</a></li>|
                 <li><a href="{% url 'music:rock' %}">Рок</a></li>|
                 {% if user.is_authenticated %}
-                    <li><a href="#">Привет, {{ user.username }}</a></li>
+                    <li><a href="{% url 'profile:main' %}">{{ user.username }}</a></li>
                     <li><a href="{% url 'users:logout' %}">Выйти</a></li>
                 {% else %}
                     <li><a href="{% url 'users:login' %}">Войти</a></li>|

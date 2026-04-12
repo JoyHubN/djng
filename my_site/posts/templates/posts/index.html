@@ -27,7 +27,7 @@
             <a href="{% url 'main:index' %}">Главная</a>
 
             {% if user.is_authenticated %}
-              <p>{{ user.username }}</p>
+              <a href="{% url 'profile:main' %}">{{ user.username }}</a>
               
               <!-- Кнопка "Создать статью" -->
               <a href="{% url 'posts:create' %}" class="btn-create-post">

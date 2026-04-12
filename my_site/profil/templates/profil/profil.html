@@ -1,0 +1,132 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Мой профиль — Rock Music{% endblock %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'profil.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="profile-container">
+    <div class="logo">
+        <h1>ROCK<span>!</span></h1>
+    </div>
+    
+    <h2>Мой профиль</h2>
+
+    {% if messages %}
+        {% for message in messages %}
+            <div class="message {{ message.tags }}">{{ message }}</div>
+        {% endfor %}
+    {% endif %}
+
+    <form method="post" id="profile-form">
+        {% csrf_token %}
+
+        <!-- Основная информация -->
+         <div class="form-group">
+            {{ form.username.label_tag }}
+            {{ form.username }}
+            {% if form.username.errors %}<div class="field-error">{{ form.username.errors|first }}</div>{% endif %}
+        </div>
+
+        <div class="form-group">
+            {{ form.first_name.label_tag }}
+            {{ form.first_name }}
+            {% if form.first_name.errors %}<div class="field-error">{{ form.first_name.errors|first }}</div>{% endif %}
+        </div>
+
+        <div class="form-group">
+            {{ form.last_name.label_tag }}
+            {{ form.last_name }}
+            {% if form.last_name.errors %}<div class="field-error">{{ form.last_name.errors|first }}</div>{% endif %}
+        </div>
+
+        <div class="form-group">
+            {{ form.email.label_tag }}
+            {{ form.email }}
+            {% if form.email.errors %}<div class="field-error">{{ form.email.errors|first }}</div>{% endif %}
+        </div>
+
+        <hr class="divider">
+
+        <!-- Блок смены пароля -->
+        <div class="password-section">
+            <div class="password-header" onclick="togglePasswordSection()">
+                <h3>Изменить пароль</h3>
+                <span class="toggle-icon" id="toggle-icon">▼</span>
+            </div>
+            
+            <div class="password-form" id="password-form" style="display: none;">
+                <div class="form-group">
+                    {{ password_form.old_password.label_tag }}
+                    {{ password_form.old_password }}
+                    {% if password_form.old_password.errors %}<div class="field-error">{{ password_form.old_password.errors|first }}</div>{% endif %}
+                </div>
+
+                <div class="form-group">
+                    {{ password_form.new_password1.label_tag }}
+                    {{ password_form.new_password1 }}
+                    {% if password_form.new_password1.errors %}<div class="field-error">{{ password_form.new_password1.errors|first }}</div>{% endif %}
+                </div>
+
+                <div class="form-group">
+                    {{ password_form.new_password2.label_tag }}
+                    {{ password_form.new_password2 }}
+                    {% if password_form.new_password2.errors %}<div class="field-error">{{ password_form.new_password2.errors|first }}</div>{% endif %}
+                </div>
+            </div>
+        </div>
+
+        <button type="submit" class="btn-save">Сохранить изменения</button>
+    </form>
+
+    <div class="links">
+        <a href="{% url 'users:logout' %}">Выйти из аккаунта</a>
+    </div>
+</div>
+
+<script>
+function togglePasswordSection() {
+    const passwordForm = document.getElementById('password-form');
+    const toggleIcon = document.getElementById('toggle-icon');
+    const isHidden = passwordForm.style.display === 'none' || passwordForm.style.display === '';
+
+    if (isHidden) {
+        passwordForm.style.display = 'block';
+        toggleIcon.textContent = '▲';
+
+        document.getElementById('id_old_password').disabled = false;
+        document.getElementById('id_new_password1').disabled = false;
+        document.getElementById('id_new_password2').disabled = false;
+
+        document.getElementById('id_old_password').required = true;
+        document.getElementById('id_new_password1').required = true;
+        document.getElementById('id_new_password2').required = true;
+    } else {
+        passwordForm.style.display = 'none';
+        toggleIcon.textContent = '▼';
+
+        document.getElementById('id_old_password').disabled = true;
+        document.getElementById('id_new_password1').disabled = true;
+        document.getElementById('id_new_password2').disabled = true;
+
+        document.getElementById('id_old_password').required = false;
+        document.getElementById('id_new_password1').required = false;
+        document.getElementById('id_new_password2').required = false;
+    }
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+    const oldPass = document.getElementById('id_old_password');
+    const newPass1 = document.getElementById('id_new_password1');
+    const newPass2 = document.getElementById('id_new_password2');
+
+    if (oldPass) oldPass.disabled = true;
+    if (newPass1) newPass1.disabled = true;
+    if (newPass2) newPass2.disabled = true;
+});
+</script>
+
+{% endblock %}
