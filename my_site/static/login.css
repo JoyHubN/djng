@@ -20,54 +20,10 @@
 }
 
 body {
-  background: linear-gradient(135deg, #0a0a0e, #1a001f);
   color: var(--text-light);
   font-family: 'Roboto', sans-serif;
   min-height: 100vh;
   line-height: 1.6;
-}
-
-/* Навигация */
-.navbar {
-  background: rgba(10, 10, 14, 0.95);
-  backdrop-filter: blur(10px);
-  border-bottom: 1px solid #333;
-  padding: 16px 40px;
-  position: sticky;
-  top: 0;
-  z-index: 100;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.logo a {
-  font-size: 2.3rem;
-  font-weight: 900;
-  text-decoration: none;
-  color: #e63946;
-  letter-spacing: -1.5px;
-}
-
-.logo span {
-  color: #f48c06;
-}
-
-.navbar ul {
-  display: flex;
-  list-style: none;
-  gap: 28px;
-}
-
-.navbar ul a {
-  color: #ccc;
-  text-decoration: none;
-  font-weight: 500;
-  transition: color 0.3s;
-}
-
-.navbar ul a:hover {
-  color: #e63946;
 }
 
 /* Основной контейнер */
@@ -86,17 +42,17 @@ body {
   padding: 50px 40px;
   width: 100%;
   max-width: 440px;
-  margin: 80px auto;
+  margin: 32px auto;
   box-shadow: 0 20px 55px rgba(0, 0, 0, 0.8);
   backdrop-filter: blur(12px);
 }
 
-.logo {
+.login-container .logo {
   text-align: center;
   margin-bottom: 35px;
 }
 
-.logo h1 {
+.login-container .logo h1 {
   font-size: 3rem;
   font-weight: 900;
   letter-spacing: -2px;
@@ -104,11 +60,11 @@ body {
   text-shadow: 0 0 25px rgba(230, 57, 70, 0.7);
 }
 
-.logo span {
+.login-container .logo span {
   color: #f48c06;
 }
 
-h2 {
+.login-container h2 {
   text-align: center;
   margin-bottom: 35px;
   font-size: 1.75rem;

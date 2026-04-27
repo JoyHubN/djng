@@ -16,10 +16,10 @@
 <header>
   <div class="logo">ROCK<span>!</span></div>
   <nav class="primary">
-    <a href="../../">На главную</a>
-    <a href="#">Поджанры</a>
+    <a href="/music/">На главную</a>
+    <a href="/music/rock/">Поджанры</a>
     <a href="#" class="active">Треки</a>
-    <a href="#">Плейлисты</a>
+    <a href="/music/rock/tracks/">Плейлисты</a>
   </nav>
 </header>
 
@@ -79,7 +79,7 @@
     {% endfor %}
   </div>
 
-  <div style="text-align:center; margin-top:60px; color:#666; font-size:0.95rem;">
+  <div class="track-footer">
     Показано {{ items|length }} треков • Данные получены через парсер • 2026
   </div>
 </div>

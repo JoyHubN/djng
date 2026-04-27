@@ -72,7 +72,7 @@ nav a.active {
 main {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 60px 24px 80px;
+  padding: 48px 24px 80px;
 }
 
 h1 {
@@ -98,7 +98,7 @@ h1 {
 .cards {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  gap: 28px;
+  gap: 24px;
 }
 
 .card {
@@ -132,7 +132,7 @@ h1 {
 }
 
 .card-body {
-  padding: 24px 24px 80px 24px;
+  padding: 22px 22px 84px 22px;
 }
 
 .card-title {
@@ -166,6 +166,7 @@ h1 {
   box-shadow: 0 6px 20px rgba(230, 57, 70, 0.5);
   transition: all 0.25s;
   text-decoration: none;
+  font-weight: 700;
 }
 
 .play-btn:hover,
@@ -177,15 +178,34 @@ h1 {
 /* Футер */
 footer {
   text-align: center;
-  padding: 60px 20px 40px;
+  padding: 40px 20px 34px;
   color: #757575;
   font-size: 14px;
   border-top: 1px solid #333;
-  margin-top: 100px;
+  margin-top: 72px;
 }
 
 /* Адаптивность */
 @media (max-width: 768px) {
+  header {
+    height: auto;
+    padding: 14px 16px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  nav {
+    display: flex;
+    flex-wrap: wrap;
+    row-gap: 8px;
+  }
+
+  nav a {
+    margin-left: 0;
+    margin-right: 16px;
+  }
+
   main {
     padding: 40px 16px 60px;
   }

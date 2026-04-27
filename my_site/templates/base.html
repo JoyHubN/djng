@@ -22,14 +22,14 @@
             <div class="logo">
                 <a href="{% url 'main:index' %}">ROCK<span>!</span></a>
             </div>
-            <ul>
-                <li><a href="{% url 'main:index' %}">Главная</a></li>|
-                <li><a href="{% url 'music:rock' %}">Рок</a></li>|
+            <ul class="nav-links">
+                <li><a href="{% url 'main:index' %}">Главная</a></li>
+                <li><a href="{% url 'music:rock' %}">Рок</a></li>
                 {% if user.is_authenticated %}
                     <li><a href="{% url 'profile:main' %}">{{ user.username }}</a></li>
                     <li><a href="{% url 'users:logout' %}">Выйти</a></li>
                 {% else %}
-                    <li><a href="{% url 'users:login' %}">Войти</a></li>|
+                    <li><a href="{% url 'users:login' %}">Войти</a></li>
                     <li><a href="{% url 'users:register' %}">Регистрация</a></li>
                 {% endif %}
             </ul>

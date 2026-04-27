@@ -20,54 +20,10 @@
 }
 
 body {
-  background: linear-gradient(135deg, #0a0a0e, #1a001f);
   color: var(--text-light);
   font-family: 'Roboto', sans-serif;
   min-height: 100vh;
   line-height: 1.6;
-}
-
-/* Навигация (общая) */
-.navbar {
-  background: rgba(10, 10, 14, 0.95);
-  backdrop-filter: blur(10px);
-  border-bottom: 1px solid #333;
-  padding: 16px 40px;
-  position: sticky;
-  top: 0;
-  z-index: 100;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.logo a {
-  font-size: 2.3rem;
-  font-weight: 900;
-  text-decoration: none;
-  color: #e63946;
-  letter-spacing: -1.5px;
-}
-
-.logo span {
-  color: #f48c06;
-}
-
-.navbar ul {
-  display: flex;
-  list-style: none;
-  gap: 28px;
-}
-
-.navbar ul a {
-  color: #ccc;
-  text-decoration: none;
-  font-weight: 500;
-  transition: color 0.3s;
-}
-
-.navbar ul a:hover {
-  color: #e63946;
 }
 
 /* ==================== БЛОК РЕГИСТРАЦИИ ==================== */
@@ -79,7 +35,7 @@ body {
   padding: 50px 40px;
   width: 100%;
   max-width: 460px;
-  margin: 60px auto;
+  margin: 32px auto;
   box-shadow: 
     0 0 25px rgba(230, 57, 70, 0.5),
     0 0 45px rgba(230, 57, 70, 0.35),
@@ -118,16 +74,16 @@ body {
   margin-bottom: 26px;
 }
 
-label {
+.register-container label {
   display: block;
   margin-bottom: 8px;
   color: #aaa;
   font-size: 0.98rem;
 }
 
-input[type="text"],
-input[type="password"],
-input[type="email"] {
+.register-container input[type="text"],
+.register-container input[type="password"],
+.register-container input[type="email"] {
   width: 100%;
   padding: 15px 18px;
   background: #1c1c24;
@@ -138,7 +94,7 @@ input[type="email"] {
   transition: all 0.3s ease;
 }
 
-input:focus {
+.register-container input:focus {
   border-color: #e63946;
   box-shadow: 0 0 0 4px rgba(230, 57, 70, 0.3);
   outline: none;
@@ -216,7 +172,7 @@ input:focus {
     margin: 40px 10px;
   }
   
-  .logo h1 {
+  .register-container .logo h1 {
     font-size: 2.5rem;
   }
 }
