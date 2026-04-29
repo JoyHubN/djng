@@ -46,7 +46,7 @@ def main():
         return 'finish'
 
     else:
-        raise f'ERROR {response_planets.status_code}'
+        return f'ERROR {response_planets.status_code}'
 
 
 if __name__ == '__main__':
