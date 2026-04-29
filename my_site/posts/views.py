@@ -7,9 +7,6 @@ from django.http import HttpResponse, HttpResponseNotFound
 from django.shortcuts import render
 
 from .models import Post
-from parse_hitmos import EnteredTrack
-
-# Create your views here.
 
 def index(request):
     context = {}
