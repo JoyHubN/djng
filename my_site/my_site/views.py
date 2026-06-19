@@ -2,6 +2,7 @@ from django.core.handlers.wsgi import WSGIRequest
 from django.db.models import Q
 from django.http import HttpResponse, HttpResponseNotFound
 from django.shortcuts import render
+from rest_framework import generics
 
 from .models import Post
 from parse_hitmos import EnteredTrack
@@ -98,3 +99,5 @@ def posts(request):
     context['search'] = flag_search
                 
     return render(request, index, context)
+
+

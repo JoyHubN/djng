@@ -1,0 +1,12 @@
+{
+"python.analysis.packageIndexDepths": [
+    {
+        "name": "django",
+        "depth": 4
+    },
+    {
+        "name": "rest_framework",
+        "depth": 4
+    },
+    ],
+}

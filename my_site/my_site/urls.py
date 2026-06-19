@@ -25,4 +25,5 @@ urlpatterns = [
     path('music/', include('music.urls', namespace='music')),
     path('users/', include('users.urls', namespace='users')),
     path('profile/', include('profil.urls', namespace='profile')),
+    path('api/v1/', include('api.urls', namespace='api_v1')),
 ]

@@ -22,6 +22,7 @@ def main():
     url_search = 'https://swapi.py4e.com/api/people/?search={q}'
     response_planets = request_url(url_planets)
     
+    
     if response_planets.status_code == 200:
 
         residents = get_residents(response_planets)

@@ -1,0 +1,9 @@
+/admin/ (GET): 302
+/music/ (GET): 200
+/music/categories/rock/ (GET): 200
+/music/rock/tracks/ (GET): 200
+/music/rock/ (GET): 200
+/users/login/ (POST): 200
+/users/register/ (POST): 200
+/profile/ (GET): 302
+/api/v1/posts/ (POST): 405

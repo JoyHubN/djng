@@ -61,5 +61,11 @@ python manage.py createsuperuser
 
 7. Запустите
 ```bash
-make run
+python manage.py runserver
 ```
+
+8. Тестирование
+```bash
+python manage.py test tests
+```
+>> результаты в `my_site/test_results/comprehensive_test_result.txt`
