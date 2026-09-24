@@ -12,3 +12,4 @@ sqlparse==0.5.5
 tenacity==9.1.2
 typing_extensions==4.15.0
 urllib3==2.6.3
+djangorestframework==3.17.1
